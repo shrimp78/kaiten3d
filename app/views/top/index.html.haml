@@ -1,2 +1,9 @@
 %h1 Top#index
-%p Find me in app/views/top/index.html.erb
+
+= form_tag('top/upload', method: "post", multipart: true) do
+  = file_field :img, :datafile
+  = submit_tag 'submit'
+
+-if @file_path
+  =image_tag @file_path
+
