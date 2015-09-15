@@ -3,11 +3,11 @@ class TopController < ApplicationController
   end
 
   def upload
-    file = params[:img]
-    name = file[:datafile].original_filename
+    file = params[:img][:datafile]
+    name = file.original_filename
     @file_path = "/img/#{name}"
     File.open("public#{@file_path}", 'wb') { |f|
-      f.write(file[:datafile].read)
+      f.write(file.read)
     }
 
     render 'index'
