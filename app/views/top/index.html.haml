@@ -1,6 +1,6 @@
 %h1 Top#index
 
-= form_tag('top/upload', method: "post", multipart: true) do
+= form_tag(top_upload_path, method: "post", multipart: true) do
   = file_field :img, :datafile
   = submit_tag 'submit'
 
