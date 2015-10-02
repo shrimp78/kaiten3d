@@ -6,9 +6,7 @@ class TopController < ApplicationController
     file = params[:img][:datafile]
     name = file.original_filename
     @file_path = "/img/#{name}"
-    File.open("public#{@file_path}", 'wb') { |f|
-      f.write(file.read)
-    }
+    File.open("public#{@file_path}", 'wb') { |f| f.write(file.read) }
 
     render 'index'
   end
