@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml-rails'
 gem 'erb2haml'
+gem 'rmagick'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.0'
