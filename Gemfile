@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 gem 'rails', '4.2.4'
 gem 'sqlite3'
@@ -30,4 +31,9 @@ group :test do
   gem 'database_cleaner', '~> 1.0.1'
   gem 'launchy', '~> 2.3.0'
   gem 'selenium-webdriver', '~>2.45.0'  
+end
+
+group :production do
+  gem 'pg', '0.15.1'
+  gem 'rails_12factor', '0.0.2'
 end
