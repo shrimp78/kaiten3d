@@ -16,4 +16,6 @@ vendor/bundle/
 /log/*
 !/log/.keep
 /tmp
-public/img/
+*.jpeg
+*.jpg
+*.png
