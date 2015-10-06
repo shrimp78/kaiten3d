@@ -13,6 +13,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'rmagick'
+gem 'less-rails'
+gem 'therubyracer'
+gem 'execjs'
+gem 'twitter-bootstrap-rails'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.0'
