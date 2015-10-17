@@ -7,7 +7,7 @@ class TopController < ApplicationController
       file = file[:datafile]
       name = file.original_filename
       ext_name = File.extname(name)
-      unless ext_name =~ /[jpeg|jpg|png]/
+      unless ext_name =~ /jpeg|jpg|png/
         @msg = "なんやねん、そのファイル"
         render 'error' and return
       end
