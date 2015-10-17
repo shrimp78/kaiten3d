@@ -1,0 +1,31 @@
+%div.jumbotron
+  %h1 Rotate 3D Image Creator
+  %p for hologram experience  
+  %p
+    画像ファイルを選択して送信します。
+    %br
+    ３D用に変換して出力されます。
+  %p
+    =link_to 'CDケースの作り方はこちら', 'http://rocketnews24.com/2015/08/10/618574/', target: '_blank'
+%hr 
+%div.row
+  -if !@file_path 
+    %div.col-lg-6
+      = form_tag(top_upload_path, method: "post", multipart: true) do
+        %div.form-group
+          %label{ "for" => "fileinput"}
+            File Input
+          = file_field :img, :datafile
+          %p.help-block
+            使えるファイルは、png/jpeg/jpg のみです。
+        = submit_tag 'submit', class: "btn btn-default"
+  -else  
+    %h3
+      =@msg
+    %p
+      =link_to "戻る", '/', class: "btn btn-default"
+    %br
+    =image_tag @file_path, style: "width: 100%;"
+    %p
+      =link_to "戻る", '/', class: "btn btn-default"
+  

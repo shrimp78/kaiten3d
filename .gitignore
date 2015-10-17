@@ -5,6 +5,8 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
+.DS_Store
+*.swp
 /.bundle
 vendor/bundle/
 # Ignore the default SQLite database.
@@ -15,3 +17,7 @@ vendor/bundle/
 /log/*
 !/log/.keep
 /tmp
+public/img/*
+*.jpeg
+*.jpg
+*.png
