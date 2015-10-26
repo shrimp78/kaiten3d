@@ -16,6 +16,7 @@ gem 'less-rails'
 gem 'therubyracer'
 gem 'execjs'
 gem 'twitter-bootstrap-rails'
+gem 'sqlite3'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.0'
