@@ -25,10 +25,19 @@ class TopController < ApplicationController
     # 画像変換 
     convertImage(@full_path)
 
+    # 塩見三省モード
+    if shiomi?
+      @file_path = ActionController::Base.helpers.asset_path "shiomi.jpeg"
+    end
+
     render 'index'
   end
 
   private
+  def shiomi?
+    rand(99) == 0
+  end
+
   def convertImage file_path
     img = Magick::ImageList.new(file_path)
     width = img.columns
