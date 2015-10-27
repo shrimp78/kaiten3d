@@ -25,28 +25,33 @@ class TopController < ApplicationController
     # 画像変換 
     convertImage(@full_path)
 
+    # 塩見三省モード
+    if shiomi?
+      @file_path = ActionController::Base.helpers.asset_path "shiomi.jpeg"
+    end
+
     render 'index'
   end
 
   private
+  def shiomi?
+    rand(99) == 0
+  end
+
   def convertImage file_path
     img = Magick::ImageList.new(file_path)
     width = img.columns
     height = img.rows
     length = (height * 2) + width
-    sheet = Magick::Image.new(length, length){self.background_color = "white"}
-    
+    sheet = Magick::Image.new(length, length){self.background_color = "black"}
     # A 
     result = sheet.composite(img, height, 0, Magick::OverCompositeOp)
-
     # B
     img = img.rotate(90)
     result = result.composite(img, height + width, height, Magick::OverCompositeOp)
-
     # C
     img = img.rotate(90)
     result = result.composite(img, height, height + width, Magick::OverCompositeOp)
-
     # D
     img = img.rotate(90)
     result = result.composite(img, 0, height, Magick::OverCompositeOp)
