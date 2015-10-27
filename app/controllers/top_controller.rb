@@ -34,19 +34,15 @@ class TopController < ApplicationController
     width = img.columns
     height = img.rows
     length = (height * 2) + width
-    sheet = Magick::Image.new(length, length){self.background_color = "white"}
-    
+    sheet = Magick::Image.new(length, length){self.background_color = "black"}
     # A 
     result = sheet.composite(img, height, 0, Magick::OverCompositeOp)
-
     # B
     img = img.rotate(90)
     result = result.composite(img, height + width, height, Magick::OverCompositeOp)
-
     # C
     img = img.rotate(90)
     result = result.composite(img, height, height + width, Magick::OverCompositeOp)
-
     # D
     img = img.rotate(90)
     result = result.composite(img, 0, height, Magick::OverCompositeOp)
